@@ -32,11 +32,16 @@ jobs:
         run: npm run build
         env:
           CI: false
-          
+
       - name: Debug AWS Env Vars
         run: |
           echo "AWS_ACCESS_KEY_ID length: ${#AWS_ACCESS_KEY_ID}"
           echo "AWS_SECRET_ACCESS_KEY length: ${#AWS_SECRET_ACCESS_KEY}"
+
+      - name: Verify Secrets
+        run: |
+          echo "AWS_ACCESS_KEY_ID exists: ${{ secrets.AWS_ACCESS_KEY_ID != '' && 'YES' || 'NO' }}"
+          echo "AWS_SECRET_ACCESS_KEY exists: ${{ secrets.AWS_SECRET_ACCESS_KEY != '' && 'YES' || 'NO' }}"
 
       - name: Check AWS config
         run: |

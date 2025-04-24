@@ -22,9 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name : caniuse-lite is outdated so updating
-        run : npx update-browserslist-db@latest
-
       - name: Update browserslist DB
         run: npx browserslist@latest --update-db
 

@@ -1,2 +1,2 @@
-# terraform-githubactions
+# aws-githubactions
 for using github actions and aws s3

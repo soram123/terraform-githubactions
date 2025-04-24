@@ -32,6 +32,15 @@ jobs:
         run: npm run build
         env:
           CI: false
+          
+      - name: Debug AWS Env Vars
+        run: |
+          echo "AWS_ACCESS_KEY_ID length: ${#AWS_ACCESS_KEY_ID}"
+          echo "AWS_SECRET_ACCESS_KEY length: ${#AWS_SECRET_ACCESS_KEY}"
+
+      - name: Check AWS config
+        run: |
+          ls -la ~/.aws/ || echo "No AWS config"
 
       - name: Upload to S3
         uses: jakejarvis/s3-sync-action@master
